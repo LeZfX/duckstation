@@ -41,6 +41,8 @@ int main(int argc, char* argv[])
   if (!host_interface->inBatchMode())
     host_interface->refreshGameList();
 
+  window->checkForUpdates();
+
   if (boot_params)
   {
     host_interface->bootSystem(*boot_params);

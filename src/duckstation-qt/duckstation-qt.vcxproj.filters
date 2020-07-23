@@ -46,11 +46,14 @@
     <ClCompile Include="$(IntDir)moc_gamelistmodel.cpp" />
     <ClCompile Include="gamelistsearchdirectoriesmodel.cpp" />
     <ClCompile Include="$(IntDir)moc_gamelistsearchdirectoriesmodel.cpp" />
+    <ClCompile Include="autoupdaterdialog.cpp" />
+    <ClCompile Include="$(IntDir)moc_autoupdaterdialog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qtutils.h" />
     <ClInclude Include="settingwidgetbinder.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="autoupdaterdialog.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resources">
@@ -121,5 +124,8 @@
     <None Include="translations\duckstation-qt_de.ts">
       <Filter>translations</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="autoupdaterdialog.ui" />
   </ItemGroup>
 </Project>

@@ -10,6 +10,7 @@
 #include "gamepropertiesdialog.h"
 #include "qtdisplaywidget.h"
 #include "qthostinterface.h"
+#include "autoupdaterdialog.h"
 #include "qtutils.h"
 #include "scmversion/scmversion.h"
 #include "settingsdialog.h"
@@ -819,4 +820,23 @@ void MainWindow::changeEvent(QEvent* event)
   }
 
   QMainWindow::changeEvent(event);
+}
+
+void MainWindow::checkForUpdates()
+{
+  if (m_auto_updater_dialog)
+    return;
+
+  m_auto_updater_dialog = new AutoUpdaterDialog(m_host_interface, this);
+  connect(m_auto_updater_dialog, &AutoUpdaterDialog::updateCheckCompleted, this, &MainWindow::onUpdateCheckComplete);
+  m_auto_updater_dialog->queueUpdateCheck();
+}
+
+void MainWindow::onUpdateCheckComplete()
+{
+  if (!m_auto_updater_dialog)
+    return;
+
+  m_auto_updater_dialog->deleteLater();
+  m_auto_updater_dialog = nullptr;
 }
