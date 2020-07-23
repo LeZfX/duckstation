@@ -8,6 +8,7 @@ add_subdirectory(scmversion)
 
 if(NOT BUILD_LIBRETRO_CORE)
   add_subdirectory(common-tests)
+  add_subdirectory(updater)
 endif()
 
 if(ANDROID OR BUILD_SDL_FRONTEND OR BUILD_QT_FRONTEND OR BUILD_LIBRETRO_CORE)
